@@ -22,12 +22,8 @@ exports.Parser = class Parser{
       }
       
       return scriptTokenTree;
-    }
-    else{
-      console.error( "Couldn't execute script:" );
-      console.error( this._BuildExpectedOutput( script ) );
-      console.error( script.rawScript );
-      return null;
+    } else{
+      throw new Error(`Couldn't execute script: ${script.rawScript} | Error: ${this._BuildExpectedOutput( script )}`);
     }
   }
 
